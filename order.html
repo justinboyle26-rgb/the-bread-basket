@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>How to Order — The Bread Basket</title>
+<meta name="description" content="How to order fresh sourdough from The Bread Basket in Bella Vista, AR." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --cream:#e8dcc0; --cream-soft:#fdf8ee;
+  --brown:#574a3c; --brown-soft:#7c6e5f;
+  --olive:#97a15e; --olive-deep:#6e7b44;
+  --gold:#c9a65e; --gold-deep:#9c6b30;
+  --clay:#b26a47; --clay-deep:#9a5532; --clay-dark:#7f4527;
+  --blush:#f6e6db; --sage-soft:#e8ecd6; --rose:#c08f82;
+  --line:#dccdaa; --radius:22px; --shadow:0 10px 28px rgba(70,58,44,0.14);
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--brown);background:var(--cream);font-size:18px;line-height:1.65;}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0;}
+a{color:var(--gold-deep);}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
+.nav{position:sticky;top:0;z-index:50;background:rgba(232,220,192,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+.nav .inner{max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--brown);}
+.brand img{width:44px;height:44px;border-radius:50%;box-shadow:0 3px 8px rgba(70,58,44,0.2);}
+.brand b{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:700;}
+.brand small{display:block;font-family:'Nunito',sans-serif;font-size:.7rem;color:var(--olive-deep);font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+.menu{display:flex;gap:6px;flex-wrap:wrap;}
+.menu a{text-decoration:none;color:var(--brown);font-weight:700;padding:8px 16px;border-radius:999px;font-size:.98rem;transition:background .15s ease,color .15s ease;}
+.menu a:hover{background:var(--cream-soft);}
+.menu a.active{background:var(--clay-deep);color:#fff;}
+.btn{display:inline-block;background:var(--clay-deep);color:#fff;text-decoration:none;font-weight:700;font-family:'Nunito',sans-serif;padding:14px 30px;border-radius:999px;box-shadow:0 6px 16px rgba(154,85,50,0.32);transition:transform .15s ease,background .15s ease;border:none;cursor:pointer;font-size:1.05rem;margin:6px;}
+.btn:hover{background:var(--clay-dark);transform:translateY(-2px);}
+.btn.olive{background:var(--olive-deep);box-shadow:0 6px 16px rgba(110,123,68,0.32);}
+.btn.olive:hover{background:#5b6738;}
+section{padding:58px 0;}
+.section-head{text-align:center;margin-bottom:38px;}
+.section-head h1,.section-head h2{font-size:2.1rem;color:var(--brown);}
+.section-head p{color:var(--brown-soft);margin:8px auto 0;max-width:600px;}
+.sprig{font-size:1.4rem;display:block;margin-bottom:6px;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:24px;margin-bottom:34px;}
+.step{text-align:center;padding:10px;}
+.step .num{width:54px;height:54px;line-height:54px;margin:0 auto 12px;border-radius:50%;background:var(--olive-deep);color:#fff;font-family:'Fraunces',serif;font-weight:700;font-size:1.4rem;}
+.step h3{font-size:1.18rem;margin-bottom:4px;}
+.step p{color:var(--brown-soft);font-size:.96rem;margin:0;}
+.order-cta{text-align:center;}
+.meta{font-size:.95rem;color:var(--brown-soft);}
+.panel{background:var(--cream-soft);border:1px solid var(--line);border-radius:var(--radius);padding:38px;box-shadow:var(--shadow);text-align:center;max-width:860px;margin:0 auto;}
+.panel.blush{background:var(--blush);}
+.panel.sage{background:var(--sage-soft);}
+.panel h2,.panel h3{margin-bottom:10px;}
+.panel p{color:var(--brown-soft);font-size:1.07rem;}
+footer{background:var(--brown);color:#f3e9d6;text-align:center;padding:50px 24px 36px;}
+footer h3{color:#fff;font-size:1.5rem;margin-bottom:10px;}
+footer a{color:#f1d9a8;font-weight:700;text-decoration:none;}
+footer a:hover{text-decoration:underline;}
+footer .contact{font-size:1.1rem;margin:6px 0;}
+footer .fnav{margin:16px 0 6px;}
+footer .fnav a{margin:0 10px;color:#e9d3a6;}
+footer .area{color:#d8c6a6;font-size:.95rem;margin-top:14px;}
+footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margin-left:auto;margin-right:auto;}
+#dataWarn{display:none;background:#fff3cd;color:#7a5b00;border:1px solid #e6d08a;border-radius:12px;padding:14px 18px;margin:16px auto;max-width:700px;text-align:center;font-size:.95rem;}
+@media (max-width:520px){
+  body{font-size:17px;}
+  .section-head h1,.section-head h2{font-size:1.75rem;}
+  section{padding:44px 0;}
+  .brand small{display:none;}
+  .panel{padding:28px 22px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="inner">
+  <a class="brand" href="index.html">
+    <img src="Refined%20Artisanal%20Logo%20for%20Sourdough%20Bakery%20(2).png" alt="The Bread Basket logo" />
+    <span><b>The Bread Basket</b><small>Sourdough Bakery</small></span>
+  </a>
+  <div class="menu">
+    <a href="index.html">Home</a>
+    <a href="order.html" class="active">How to Order</a>
+    <a href="breads.html">Our Breads &amp; Specials</a>
+  </div>
+</div></nav>
+
+<div id="dataWarn">Heads up: the content file (<strong>bakery-data.js</strong>) didn't load, so some text is missing. Make sure it's in the same folder as this page.</div>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="sprig">🧺</span>
+      <h1 style="font-size:2.4rem;">How to Order</h1>
+      <p>Ordering is easy — just send us a message and we'll take care of the rest. No apps, no accounts, no fuss.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Pick your breads</h3><p>Choose what you'd like and how many of each from our menu.</p></div>
+      <div class="step"><div class="num">2</div><h3>Send a message</h3><p>Text or email your order with your name and the day you'd like it.</p></div>
+      <div class="step"><div class="num">3</div><h3>We bake it fresh</h3><p>We'll confirm your order and bake it to order — never in advance.</p></div>
+      <div class="step"><div class="num">4</div><h3>Pick it up warm</h3><p>Grab your fresh bread, still smelling like the oven. Enjoy!</p></div>
+    </div>
+
+    <div class="order-cta">
+      <a class="btn" data-tel href="#">Text Your Order</a>
+      <a class="btn olive" data-mail data-subject="Bread Order" href="#">Email Your Order</a>
+      <p class="meta" style="margin-top:14px;">Prefer to chat? Call or text <strong class="phoneDisp"></strong>.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="panel blush" style="text-align:left;">
+      <h3 style="text-align:center;font-size:1.6rem;">Good to Know</h3>
+      <p style="text-align:center;">A few friendly details to make ordering smooth:</p>
+      <p>🗓️ <strong>Order ahead.</strong> Since everything is made to order, please send your order a couple of days before you'd like it — especially for weekends.</p>
+      <p>🥖 <strong>Standing weekly orders.</strong> Love your bread? Reserve the same loaf every week and we'll set it aside for you, no need to ask twice.</p>
+      <p>🎁 <strong>Refer a friend, get a free pretzel.</strong> Tell a neighbor about us — when they place their first order, your next one comes with a warm pretzel on the house.</p>
+      <p>💵 <strong>Simple &amp; safe.</strong> We keep ordering lightweight: no online payments or card details needed. We'll sort out payment at pickup.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h3>Let's get baking!</h3>
+  <p class="contact">📱 Text or call: <a data-tel href="#" class="phoneDisp"></a></p>
+  <p class="contact">✉️ <a data-mail href="#" class="emailDisp"></a></p>
+  <div class="fnav">
+    <a href="index.html">Home</a> · <a href="order.html">How to Order</a> · <a href="breads.html">Breads &amp; Specials</a>
+  </div>
+  <p class="area"></p>
+  <p class="fine">The Bread Basket · Bella Vista, AR. Made in a home kitchen. Phone and email shown are placeholders — replace them in the editor with your real contact details.</p>
+</footer>
+
+<script src="bakery-data.js"></script>
+<script>
+(function(){
+  var S = window.SITE;
+  if(!S){ var w=document.getElementById('dataWarn'); if(w) w.style.display='block'; return; }
+  function esc(t){return (t==null?'':String(t)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+  function setHTML(id,html){var e=document.getElementById(id); if(e) e.innerHTML=html;}
+  function setAllText(cls,txt){var els=document.getElementsByClassName(cls); for(var i=0;i<els.length;i++) els[i].textContent=txt;}
+  var chips=(S.flavors||[]).map(function(f){return '<span class="chip">'+esc(f)+'</span>';}).join('');
+  setHTML('flavors', chips); setHTML('specialFlavors', chips);
+  var tel='sms:'+(S.phoneDigits||''); var mail='mailto:'+(S.email||'');
+  var tl=document.querySelectorAll('[data-tel]'); for(var i=0;i<tl.length;i++) tl[i].setAttribute('href',tel);
+  var ml=document.querySelectorAll('[data-mail]'); for(var j=0;j<ml.length;j++){ var sub=ml[j].getAttribute('data-subject'); ml[j].setAttribute('href', mail+(sub?('?subject='+encodeURIComponent(sub)):'')); }
+  setAllText('phoneDisp', S.phoneDisplay||''); setAllText('emailDisp', S.email||''); setAllText('area', S.area||'');
+})();
+</script>
+</body>
+</html>
