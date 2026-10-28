@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="logo.png" type="image/png" />
 <title>How to Order — The Bread Basket</title>
 <meta name="description" content="How to order fresh sourdough from The Bread Basket in Bella Vista, AR." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +24,7 @@ html{scroll-behavior:smooth;}
 body{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--brown);background:var(--cream);font-size:18px;line-height:1.65;}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0;}
 a{color:var(--gold-deep);}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--olive-deep);outline-offset:3px;}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
 .nav{position:sticky;top:0;z-index:50;background:rgba(232,220,192,0.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
 .nav .inner{max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
@@ -78,13 +80,13 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
 
 <nav class="nav"><div class="inner">
   <a class="brand" href="index.html">
-    <img src="Refined%20Artisanal%20Logo%20for%20Sourdough%20Bakery%20(2).png" alt="The Bread Basket logo" />
+    <img src="logo.png" alt="The Bread Basket logo" width="44" height="44" />
     <span><b>The Bread Basket</b><small>Sourdough Bakery</small></span>
   </a>
   <div class="menu">
     <a href="index.html">Home</a>
     <a href="order.html" class="active">How to Order</a>
-    <a href="breads.html">Our Breads &amp; Specials</a>
+    <a href="breads.html">Our Breads</a>
   </div>
 </div></nav>
 
@@ -99,16 +101,23 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
     </div>
 
     <div class="steps">
-      <div class="step"><div class="num">1</div><h3>Pick your breads</h3><p>Choose what you'd like and how many of each from our menu.</p></div>
+      <div class="step"><div class="num">1</div><h3>Pick your breads</h3><p>Choose what you'd like and how many of each from <a href="breads.html">our menu</a>.</p></div>
       <div class="step"><div class="num">2</div><h3>Send a message</h3><p>Text or email your order with your name and the day you'd like it.</p></div>
       <div class="step"><div class="num">3</div><h3>We bake it fresh</h3><p>We'll confirm your order and bake it to order — never in advance.</p></div>
-      <div class="step"><div class="num">4</div><h3>Pick it up warm</h3><p>Grab your fresh bread, still smelling like the oven. Enjoy!</p></div>
+      <div class="step"><div class="num">4</div><h3>Pick it up warm</h3><p>We'll text you the pickup address when your order is confirmed. Grab it fresh!</p></div>
     </div>
 
     <div class="order-cta">
-      <a class="btn" data-tel href="#">Text Your Order</a>
+      <a class="btn" data-sms href="#">Text Your Order</a>
       <a class="btn olive" data-mail data-subject="Bread Order" href="#">Email Your Order</a>
-      <p class="meta" style="margin-top:14px;">Prefer to chat? Call or text <strong class="phoneDisp"></strong>.</p>
+      <p class="meta" style="margin-top:14px;">Prefer to chat? Call <a data-call href="#"><strong class="phoneDisp"></strong></a>.</p>
+      <div class="panel" style="margin-top:28px;text-align:left;padding:24px 28px;">
+        <h3 style="text-align:center;font-size:1.25rem;margin-bottom:10px;">What to include in your message</h3>
+        <p style="margin:6px 0;">• Your name</p>
+        <p style="margin:6px 0;">• What you want and how many of each</p>
+        <p style="margin:6px 0;">• The day you'd like to pick up</p>
+        <p style="margin:6px 0;color:var(--brown-soft);font-size:.95rem;">The Text and Email buttons open a starter message you can fill in.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -121,7 +130,7 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
       <p>🗓️ <strong>Large orders.</strong> Big orders are baked and ready by the end of the day on Fridays or Saturdays — we'll confirm your exact day and time when you place your order.</p>
       <p>⏰ <strong>Smaller orders.</strong> Smaller orders are usually quicker! We'll look at what you need and let you know when it'll be ready right when you order.</p>
       <p>🥖 <strong>Standing weekly orders.</strong> Love your bread? Reserve the same loaf every week and we'll set it aside for you, no need to ask twice.</p>
-      <p>🎁 <strong>Refer a friend, get a free pretzel.</strong> Tell a neighbor about us — when they place their first order, your next one comes with a warm pretzel on the house.</p>
+      <p>🎁 <strong>Refer a friend, get a thank-you treat.</strong> Tell a neighbor about us — when they place their first order, your next one comes with a little something on the house.</p>
       <p>💵 <strong>Simple &amp; safe.</strong> We keep ordering lightweight: no online payments or card details needed. We'll sort out payment at pickup.</p>
     </div>
   </div>
@@ -129,13 +138,13 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
 
 <footer>
   <h3>Let's get baking!</h3>
-  <p class="contact">📱 Text or call: <a data-tel href="#" class="phoneDisp"></a></p>
+  <p class="contact">📱 Text: <a data-sms href="#" class="phoneDisp"></a> · Call: <a data-call href="#" class="phoneDisp"></a></p>
   <p class="contact">✉️ <a data-mail href="#" class="emailDisp"></a></p>
   <div class="fnav">
-    <a href="index.html">Home</a> · <a href="order.html">How to Order</a> · <a href="breads.html">Breads &amp; Specials</a>
+    <a href="index.html">Home</a> · <a href="order.html">How to Order</a> · <a href="breads.html">Breads</a>
   </div>
   <p class="area"></p>
-  <p class="fine">The Bread Basket · Bella Vista, AR. Made in a home kitchen. Phone and email shown are placeholders — replace them in the editor with your real contact details.</p>
+  <p class="fine">The Bread Basket · Bella Vista, AR. Made in a home kitchen. Pickup only — we'll share the address when we confirm your order.</p>
 </footer>
 
 <script src="bakery-data.js"></script>
@@ -143,14 +152,20 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
 (function(){
   var S = window.SITE;
   if(!S){ var w=document.getElementById('dataWarn'); if(w) w.style.display='block'; return; }
-  function esc(t){return (t==null?'':String(t)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-  function setHTML(id,html){var e=document.getElementById(id); if(e) e.innerHTML=html;}
   function setAllText(cls,txt){var els=document.getElementsByClassName(cls); for(var i=0;i<els.length;i++) els[i].textContent=txt;}
-  var chips=(S.flavors||[]).map(function(f){return '<span class="chip">'+esc(f)+'</span>';}).join('');
-  setHTML('flavors', chips); setHTML('specialFlavors', chips);
-  var tel='sms:'+(S.phoneDigits||''); var mail='mailto:'+(S.email||'');
-  var tl=document.querySelectorAll('[data-tel]'); for(var i=0;i<tl.length;i++) tl[i].setAttribute('href',tel);
-  var ml=document.querySelectorAll('[data-mail]'); for(var j=0;j<ml.length;j++){ var sub=ml[j].getAttribute('data-subject'); ml[j].setAttribute('href', mail+(sub?('?subject='+encodeURIComponent(sub)):'')); }
+  function setHrefs(sel, href){ var els=document.querySelectorAll(sel); for(var i=0;i<els.length;i++) els[i].setAttribute('href', href); }
+  var digits=(S.phoneDigits||'').replace(/\D/g,'');
+  var orderBody="Hi! I'd like to place a bread order.\n\nName:\nItems & quantities:\nPreferred pickup day:\n\nThanks!";
+  setHrefs('[data-sms]', 'sms:'+digits+'?body='+encodeURIComponent(orderBody));
+  setHrefs('[data-call]', 'tel:'+digits);
+  var mail='mailto:'+(S.email||'');
+  var ml=document.querySelectorAll('[data-mail]');
+  for(var j=0;j<ml.length;j++){
+    var sub=ml[j].getAttribute('data-subject');
+    var href=mail;
+    if(sub){ href+='?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(orderBody); }
+    ml[j].setAttribute('href', href);
+  }
   setAllText('phoneDisp', S.phoneDisplay||''); setAllText('emailDisp', S.email||''); setAllText('area', S.area||'');
 })();
 </script>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="logo.png" type="image/png" />
 <title>The Bread Basket — A Sourdough Bakery in Bella Vista, AR</title>
 <meta name="description" content="Small-batch sourdough baked fresh to order in Bella Vista, Arkansas." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,6 +24,7 @@ html{scroll-behavior:smooth;}
 body{margin:0;font-family:'Nunito',system-ui,sans-serif;color:var(--brown);background:var(--cream);font-size:18px;line-height:1.65;}
 h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;margin:0;}
 a{color:var(--gold-deep);}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--olive-deep);outline-offset:3px;}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px;}
 
 /* Nav */
@@ -118,20 +120,21 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
 
 <nav class="nav"><div class="inner">
   <a class="brand" href="index.html">
-    <img src="Refined%20Artisanal%20Logo%20for%20Sourdough%20Bakery%20(2).png" alt="The Bread Basket logo" />
+    <img src="logo.png" alt="The Bread Basket logo" width="44" height="44" />
     <span><b>The Bread Basket</b><small>Sourdough Bakery</small></span>
   </a>
   <div class="menu">
     <a href="index.html" class="active">Home</a>
     <a href="order.html">How to Order</a>
-    <a href="breads.html">Our Breads &amp; Specials</a>
+    <a href="breads.html">Our Breads</a>
   </div>
 </div></nav>
 
 <div id="dataWarn">Heads up: the content file (<strong>bakery-data.js</strong>) didn't load, so some text is missing. Make sure it's in the same folder as this page.</div>
 
 <header class="hero">
-  <img class="logo" src="Refined%20Artisanal%20Logo%20for%20Sourdough%20Bakery%20(2).png" alt="The Bread Basket — a sourdough bakery logo with a loaf of bread framed by wheat sprigs" />
+  <img class="logo" src="logo.png" width="340" height="340" alt="The Bread Basket — a sourdough bakery logo with a loaf of bread framed by wheat sprigs" />
+  <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);margin-top:16px;color:var(--brown);">The Bread Basket</h1>
   <p class="tagline" id="tagline"></p>
   <p class="welcome" id="welcome"></p>
   <a class="btn" href="breads.html">See Our Breads</a>
@@ -181,13 +184,13 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
 
 <footer>
   <h3>Let's get baking!</h3>
-  <p class="contact">📱 Text or call: <a data-tel href="#" class="phoneDisp"></a></p>
+  <p class="contact">📱 Text: <a data-sms href="#" class="phoneDisp"></a> · Call: <a data-call href="#" class="phoneDisp"></a></p>
   <p class="contact">✉️ <a data-mail href="#" class="emailDisp"></a></p>
   <div class="fnav">
-    <a href="index.html">Home</a> · <a href="order.html">How to Order</a> · <a href="breads.html">Breads &amp; Specials</a>
+    <a href="index.html">Home</a> · <a href="order.html">How to Order</a> · <a href="breads.html">Breads</a>
   </div>
   <p class="area"></p>
-  <p class="fine">The Bread Basket · Bella Vista, AR. Made in a home kitchen. Phone and email shown are placeholders — replace them in the editor with your real contact details.</p>
+  <p class="fine">The Bread Basket · Bella Vista, AR. Made in a home kitchen. Pickup only — we'll share the address when we confirm your order.</p>
 </footer>
 
 <script src="bakery-data.js"></script>
@@ -198,6 +201,7 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
   function esc(t){return (t==null?'':String(t)).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
   function setHTML(id,html){var e=document.getElementById(id); if(e) e.innerHTML=html;}
   function setAllText(cls,txt){var els=document.getElementsByClassName(cls); for(var i=0;i<els.length;i++) els[i].textContent=txt;}
+  function setHrefs(sel, href){ var els=document.querySelectorAll(sel); for(var i=0;i<els.length;i++) els[i].setAttribute('href', href); }
   setHTML('tagline', esc(S.tagline));
   setHTML('welcome', esc(S.welcome));
   setHTML('aboutText', esc(S.aboutText));
@@ -230,9 +234,18 @@ footer .fine{color:#b39e7e;font-size:.8rem;margin-top:22px;max-width:600px;margi
         '<div class="price">'+esc(p.price)+'</div></div></article>';
     }).join('');
   }
-  var tel='sms:'+(S.phoneDigits||''); var mail='mailto:'+(S.email||'');
-  var tl=document.querySelectorAll('[data-tel]'); for(var i=0;i<tl.length;i++) tl[i].setAttribute('href',tel);
-  var ml=document.querySelectorAll('[data-mail]'); for(var j=0;j<ml.length;j++){ var sub=ml[j].getAttribute('data-subject'); ml[j].setAttribute('href', mail+(sub?('?subject='+encodeURIComponent(sub)):'')); }
+  var digits=(S.phoneDigits||'').replace(/\D/g,'');
+  var orderBody="Hi! I'd like to place a bread order.\n\nName:\nItems & quantities:\nPreferred pickup day:\n\nThanks!";
+  setHrefs('[data-sms]', 'sms:'+digits+'?body='+encodeURIComponent(orderBody));
+  setHrefs('[data-call]', 'tel:'+digits);
+  var mail='mailto:'+(S.email||'');
+  var ml=document.querySelectorAll('[data-mail]');
+  for(var j=0;j<ml.length;j++){
+    var sub=ml[j].getAttribute('data-subject');
+    var href=mail;
+    if(sub){ href+='?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(orderBody); }
+    ml[j].setAttribute('href', href);
+  }
   setAllText('phoneDisp', S.phoneDisplay||''); setAllText('emailDisp', S.email||''); setAllText('area', S.area||'');
 })();
 </script>
